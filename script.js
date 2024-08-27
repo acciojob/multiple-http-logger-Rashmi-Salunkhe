@@ -4,5 +4,18 @@ const urls = [
   "https://jsonplaceholder.typicode.com/posts/3",
 ];
 
-// Don't change the above line
-// Write your code here
+// Function to fetch and log data from URLs
+async function fetchAndLogUrls(urls) {
+  for (let url of urls) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(`Error fetching data from ${url}:`, error);
+    }
+  }
+}
+
+// Call the function to start fetching and logging
+fetchAndLogUrls(urls);
